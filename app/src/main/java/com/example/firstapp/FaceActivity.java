@@ -85,13 +85,15 @@ public class FaceActivity extends AppCompatActivity {
                 CameraSelector cameraSelector;
                 try {
                     cameraSelector = new CameraSelector.Builder()
+                            .requireLensFacing((CameraSelector.LENS_FACING_FRONT))
                             .build();
                     Log.d("DEBUG_CAMERA", "Default camera selector used");
                 } catch (IllegalArgumentException e) {
                     Log.e("DEBUG_CAMERA", "Front camera not available, switching to back camera.");
                     cameraSelector = new CameraSelector.Builder()
-                            .requireLensFacing(CameraSelector.LENS_FACING_BACK)
+                            .requireLensFacing(CameraSelector.LENS_FACING_FRONT)
                             .build();
+
                 }
 
                 Preview preview = new Preview.Builder().build();

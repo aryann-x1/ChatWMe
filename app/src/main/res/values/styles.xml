@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<resources>
+    <style name="Widget.MyApp.FAB" parent="Widget.MaterialComponents.FloatingActionButton">
+        <item name="elevation">10dp</item>
+        <item name="pressedTranslationZ">12dp</item>
+    </style>
+
+</resources>

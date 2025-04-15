@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.text.method.LinkMovementMethod;
 import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -32,6 +33,8 @@ public class mainPage extends AppCompatActivity {
         items = new ArrayList<>();
         adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, items);
         listView.setAdapter(adapter);
+
+
 
         // Add items to the list
         addItem("Group Community");
@@ -68,9 +71,40 @@ public class mainPage extends AppCompatActivity {
 
         findViewById(R.id.camera).setOnClickListener(v ->
                 startActivity(new Intent(this, FaceActivity.class)));
+        findViewById(R.id.fab).setOnClickListener(v -> showAddItemDialog());
 
 
     }
+    private void showAddItemDialog() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("Add New Forum Topic");
+
+        View dialogView = getLayoutInflater().inflate(R.layout.dialog_add_item, null);
+        builder.setView(dialogView);
+
+        final EditText inputTitle = dialogView.findViewById(R.id.inputTitle);
+        final EditText inputContent = dialogView.findViewById(R.id.inputContent);
+
+        builder.setPositiveButton("Add", (dialog, which) -> {
+            String title = inputTitle.getText().toString().trim();
+            String content = inputContent.getText().toString().trim();
+
+            if (!title.isEmpty()) {
+                // You can format title + content however you'd like
+                addItem(title + ": " + content);
+                Toast.makeText(this, "Topic added!", Toast.LENGTH_SHORT).show();
+            } else {
+                Toast.makeText(this, "Please enter a title.", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        builder.setNegativeButton("Cancel", (dialog, which) -> dialog.dismiss());
+
+        builder.show();
+    }
+
+
+
     private void showForumPopup(String title) {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle(title);

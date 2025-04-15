@@ -29,7 +29,7 @@
         app:boxCornerRadiusTopEnd="16dp"
         app:boxCornerRadiusBottomStart="16dp"
         app:boxCornerRadiusBottomEnd="16dp"
-        app:boxStrokeColor="#BA68C8"
+
         app:hintEnabled="true"
         app:boxBackgroundColor="#F3E5F5">
 
@@ -37,6 +37,7 @@
             android:id="@+id/usernameEditText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:textColor="@color/black"
             android:hint="Username" />
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -50,7 +51,7 @@
         app:boxCornerRadiusTopEnd="16dp"
         app:boxCornerRadiusBottomStart="16dp"
         app:boxCornerRadiusBottomEnd="16dp"
-        app:boxStrokeColor="#BA68C8"
+
         app:boxBackgroundColor="#F3E5F5">
 
         <com.google.android.material.textfield.TextInputEditText
@@ -58,6 +59,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Password"
+            android:textColor="@color/black"
             android:inputType="textPassword" />
     </com.google.android.material.textfield.TextInputLayout>
 
